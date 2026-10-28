@@ -1,0 +1,19 @@
+# Flutter / Dart
+.dart_tool/
+build/
+.flutter-plugins-dependencies
+*.iml
+.idea/
+.vscode/
+.DS_Store
+
+# Secrets: copy .env.example to .env and add your own API key
+.env
+
+# iOS / Android generated
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/ephemeral/
+**/android/.gradle/
+**/android/local.properties
+**/android/app/.cxx/
