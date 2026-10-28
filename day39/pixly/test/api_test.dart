@@ -1,0 +1,123 @@
+import 'package:dio/dio.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:pixly/core/api/api_client.dart';
+import 'package:pixly/core/api/api_exception.dart';
+import 'package:pixly/core/error_kind.dart';
+import 'package:pixly/core/result.dart';
+import 'package:pixly/repositories/photo_repository.dart';
+
+import 'helpers/fake_adapter.dart';
+
+/// Builds the same Dio the app uses, but with a fake adapter.
+(PhotoRepository, FakeAdapter) build(ResponseBody Function(RequestOptions) h) {
+  final adapter = FakeAdapter(h);
+  final dio = Dio(
+    BaseOptions(
+      baseUrl: ApiClient.baseUrl,
+      headers: {'Authorization': 'test-key'},
+    ),
+  )..httpClientAdapter = adapter;
+  return (PhotoRepository(ApiClient(dio: dio)), adapter);
+}
+
+void main() {
+  test(
+    'curated() calls /curated with page & per_page and the raw key',
+    () async {
+      final (repo, adapter) = build(
+        (_) => FakeAdapter.json(FakeAdapter.fixture('curated_page1')),
+      );
+
+      final result = await repo.curated(page: 2);
+
+      expect(result, isA<Success>());
+      final req = adapter.requests.single;
+      expect(
+        req.uri.toString(),
+        startsWith('https://api.pexels.com/v1/curated'),
+      );
+      expect(req.queryParameters, {
+        'page': 2,
+        'per_page': PhotoRepository.perPage,
+      });
+      expect(req.headers['Authorization'], 'test-key'); // no "Bearer"
+      final page = (result as Success).data;
+      expect(page.photos, hasLength(12));
+      expect(page.hasMore, isTrue);
+    },
+  );
+
+  test('search() URL-encodes the query', () async {
+    final (repo, adapter) = build(
+      (_) => FakeAdapter.json(FakeAdapter.fixture('search_nature')),
+    );
+
+    await repo.search('coffee & cake');
+
+    final uri = adapter.requests.single.uri;
+    expect(uri.path, '/v1/search');
+    expect(uri.queryParameters['query'], 'coffee & cake');
+    expect(uri.query, contains('query=coffee+%26+cake'));
+  });
+
+  for (final (status, text, kind) in [
+    (401, 'Invalid API key', ErrorKind.unauthorized),
+    (404, "couldn't find it", ErrorKind.notFound),
+    (429, 'Too many requests', ErrorKind.rateLimited),
+    (500, 'Server error (500)', ErrorKind.server),
+    (503, 'Server error (503)', ErrorKind.server),
+    (400, 'Request failed (400)', ErrorKind.unknown),
+    (403, 'Request failed (403)', ErrorKind.unknown),
+  ]) {
+    test('HTTP $status becomes a Failure with a readable message', () async {
+      final (repo, _) = build(
+        (_) => FakeAdapter.json({'error': 'x'}, status: status),
+      );
+      final result = await repo.curated();
+      expect(result, isA<Failure>());
+      final failure = result as Failure;
+      expect(failure.message, contains(text));
+      expect(failure.kind, kind);
+    });
+  }
+
+  test('timeouts map to a timeout message', () {
+    final e = ApiException.fromDio(
+      DioException.connectionTimeout(
+        timeout: const Duration(seconds: 10),
+        requestOptions: RequestOptions(path: '/curated'),
+      ),
+    );
+    expect(e.message, contains('timed out'));
+    expect(e.kind, ErrorKind.network);
+  });
+
+  test('connection errors map to an unable-to-connect message', () {
+    final e = ApiException.fromDio(
+      DioException.connectionError(
+        requestOptions: RequestOptions(path: '/curated'),
+        reason: 'offline',
+      ),
+    );
+    expect(e.message, contains('Unable to connect'));
+    expect(e.kind, ErrorKind.network);
+  });
+
+  test('a malformed response becomes a Failure instead of throwing', () async {
+    final (repo, _) = build(
+      (_) => FakeAdapter.json({
+        'page': 1,
+        'photos': [
+          {'id': 'not-an-int', 'src': {}},
+        ],
+      }),
+    );
+    final result = await repo.curated();
+    expect(result, isA<Failure>());
+    expect((result as Failure).message, contains('Unexpected response'));
+  });
+
+  test('ApiClient(apiKey:) can be created without .env (smoke test)', () {
+    expect(ApiClient(apiKey: 'abc'), isA<ApiClient>());
+  });
+}

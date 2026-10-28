@@ -1,0 +1,95 @@
+{
+ "page": 3,
+ "per_page": 12,
+ "photos": [
+  {
+   "id": 1001,
+   "width": 4000,
+   "height": 6000,
+   "url": "https://example.com/photo/1001/",
+   "photographer": "Ava Thompson",
+   "photographer_url": "https://example.com/@ava-thompson",
+   "photographer_id": 500,
+   "avg_color": "#7A8C6E",
+   "src": {
+    "original": "https://example.com/photos/1001/original.jpg",
+    "large2x": "https://example.com/photos/1001/large2x.jpg",
+    "large": "https://example.com/photos/1001/large.jpg",
+    "medium": "https://example.com/photos/1001/medium.jpg",
+    "small": "https://example.com/photos/1001/small.jpg",
+    "portrait": "https://example.com/photos/1001/portrait.jpg",
+    "landscape": "https://example.com/photos/1001/landscape.jpg",
+    "tiny": "https://example.com/photos/1001/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Green hills under a cloudy sky"
+  },
+  {
+   "id": 1002,
+   "width": 6000,
+   "height": 4000,
+   "url": "https://example.com/photo/1002/",
+   "photographer": "Min Thu",
+   "photographer_url": "https://example.com/@min-thu",
+   "photographer_id": 501,
+   "avg_color": "#B5A48B",
+   "src": {
+    "original": "https://example.com/photos/1002/original.jpg",
+    "large2x": "https://example.com/photos/1002/large2x.jpg",
+    "large": "https://example.com/photos/1002/large.jpg",
+    "medium": "https://example.com/photos/1002/medium.jpg",
+    "small": "https://example.com/photos/1002/small.jpg",
+    "portrait": "https://example.com/photos/1002/portrait.jpg",
+    "landscape": "https://example.com/photos/1002/landscape.jpg",
+    "tiny": "https://example.com/photos/1002/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Cup of coffee on a wooden table"
+  },
+  {
+   "id": 1003,
+   "width": 3000,
+   "height": 4500,
+   "url": "https://example.com/photo/1003/",
+   "photographer": "Lucas Silva",
+   "photographer_url": "https://example.com/@lucas-silva",
+   "photographer_id": 502,
+   "avg_color": "#3E5A73",
+   "src": {
+    "original": "https://example.com/photos/1003/original.jpg",
+    "large2x": "https://example.com/photos/1003/large2x.jpg",
+    "large": "https://example.com/photos/1003/large.jpg",
+    "medium": "https://example.com/photos/1003/medium.jpg",
+    "small": "https://example.com/photos/1003/small.jpg",
+    "portrait": "https://example.com/photos/1003/portrait.jpg",
+    "landscape": "https://example.com/photos/1003/landscape.jpg",
+    "tiny": "https://example.com/photos/1003/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "City lights at night"
+  },
+  {
+   "id": 1004,
+   "width": 5000,
+   "height": 3333,
+   "url": "https://example.com/photo/1004/",
+   "photographer": "Hana Sato",
+   "photographer_url": "https://example.com/@hana-sato",
+   "photographer_id": 503,
+   "avg_color": "#D9C7B0",
+   "src": {
+    "original": "https://example.com/photos/1004/original.jpg",
+    "large2x": "https://example.com/photos/1004/large2x.jpg",
+    "large": "https://example.com/photos/1004/large.jpg",
+    "medium": "https://example.com/photos/1004/medium.jpg",
+    "small": "https://example.com/photos/1004/small.jpg",
+    "portrait": "https://example.com/photos/1004/portrait.jpg",
+    "landscape": "https://example.com/photos/1004/landscape.jpg",
+    "tiny": "https://example.com/photos/1004/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Cherry blossoms in spring"
+  }
+ ],
+ "prev_page": "https://api.pexels.com/v1/curated/?page=2&per_page=12"
+}

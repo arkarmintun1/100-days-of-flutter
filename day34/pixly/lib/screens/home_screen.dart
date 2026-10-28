@@ -1,0 +1,128 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pixly/config/assets.dart';
+import 'package:pixly/config/constants.dart';
+import 'package:pixly/models/photo.dart';
+import 'package:pixly/providers/photos_provider.dart';
+import 'package:pixly/router/app_router.dart';
+import 'package:pixly/utils/links.dart';
+import 'package:pixly/widgets/empty_state.dart';
+import 'package:pixly/widgets/load_more_status.dart';
+import 'package:pixly/widgets/photo_grid.dart';
+import 'package:pixly/widgets/shimmer_grid.dart';
+import 'package:provider/provider.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          spacing: 12,
+          children: [
+            SvgPicture.asset(AppAssets.logo, width: 32, height: 32),
+            const Flexible(
+              child: Text(AppConstants.appName, overflow: .ellipsis),
+            ),
+          ],
+        ),
+        actions: [
+          // Pexels asks apps using its API to show a prominent link back.
+          TextButton(
+            onPressed: () => openLink(context, AppConstants.pexelsUrl),
+            child: const Text('Photos by Pexels'),
+          ),
+        ],
+      ),
+      body: const _PhotosBody(),
+    );
+  }
+}
+
+class _PhotosBody extends StatelessWidget {
+  const _PhotosBody();
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = context.watch<PhotosProvider>();
+    final photos = provider.photos;
+
+    if (provider.isLoading && photos.isEmpty) {
+      return const ShimmerGrid();
+    }
+
+    if (provider.error != null && photos.isEmpty) {
+      return EmptyState(
+        title: 'Something went wrong',
+        message: provider.error!,
+        action: FilledButton.icon(
+          onPressed: () => context.read<PhotosProvider>().loadCurated(),
+          icon: const Icon(Icons.refresh),
+          label: const Text('Try again'),
+        ),
+      );
+    }
+
+    if (photos.isEmpty) {
+      return EmptyState(
+        title: 'No photos yet',
+        message: 'Beautiful photos from Pexels will show up here soon.',
+        action: FilledButton.icon(
+          onPressed: () => context.read<PhotosProvider>().loadCurated(),
+          icon: const Icon(Icons.refresh),
+          label: const Text('Reload'),
+        ),
+      );
+    }
+
+    return Stack(
+      children: [
+        RefreshIndicator(
+          onRefresh: () => _refresh(context),
+          child: PhotoGrid(
+            photos: photos,
+            onLoadMore: context.read<PhotosProvider>().loadMore,
+            onPhotoTap: (photo) => _openDetail(context, photo),
+          ),
+        ),
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 16,
+          child: Center(
+            child: LoadMoreStatus(
+              isLoadingMore: provider.isLoadingMore,
+              error: provider.loadMoreError,
+              onRetry: provider.retryLoadMore,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _openDetail(BuildContext context, Photo photo) {
+    // The Photo rides along as `extra`, so the detail screen can show it
+    // right away without fetching it again.
+    context.go(AppRoutes.photo(photo.id), extra: photo);
+  }
+
+  Future<void> _refresh(BuildContext context) async {
+    final provider = context.read<PhotosProvider>();
+
+    await provider.loadCurated();
+
+    // The screen may be gone by the time the request finishes.
+    if (!context.mounted) return;
+
+    // The old photos are still on screen, so show the error in a SnackBar.
+    if (provider.error != null) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(provider.error!)));
+    }
+  }
+}

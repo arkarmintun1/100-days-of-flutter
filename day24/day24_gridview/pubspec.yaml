@@ -1,0 +1,19 @@
+name: day24_gridview
+description: "100 Days of Flutter - Day 24: GridView & Aspect Ratios"
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
