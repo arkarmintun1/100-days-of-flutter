@@ -1,0 +1,66 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pixly/config/constants.dart';
+import 'package:pixly/config/theme.dart';
+import 'package:pixly/core/retry_policy.dart';
+import 'package:pixly/providers/dependencies.dart';
+import 'package:pixly/providers/theme_notifier.dart';
+import 'package:pixly/router/app_router.dart';
+import 'package:pixly/storage/bookmarks_storage.dart';
+import 'package:pixly/storage/settings_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: '.env');
+
+  // Show the Poppins font license on Flutter's licenses page.
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('assets/fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['Poppins'], license);
+  });
+
+  // Reads the saved values from the device once, so later reads are instant.
+  final prefs = await SharedPreferencesWithCache.create(
+    cacheOptions: const SharedPreferencesWithCacheOptions(
+      allowList: {PrefsBookmarksStorage.key, PrefsSettingsStorage.themeModeKey},
+    ),
+  );
+
+  runApp(
+    // Creates Riverpod's container. The override hands it the
+    // SharedPreferences that we had to await above.
+    ProviderScope(
+      // Every provider that fails with a network or server error is tried
+      // again up to 3 times before the error is shown.
+      retry: retryTransient,
+      overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
+      child: PixlyApp(router: createRouter()),
+    ),
+  );
+}
+
+class PixlyApp extends ConsumerWidget {
+  const PixlyApp({super.key, required this.router});
+
+  /// Created once in main(), not in build(): a new GoRouter on every rebuild
+  /// would reset the navigation stack.
+  final GoRouter router;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return MaterialApp.router(
+      title: AppConstants.appName,
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      // Rebuilds the app with the other theme when the user switches.
+      themeMode: ref.watch(themeModeProvider),
+      routerConfig: router,
+    );
+  }
+}

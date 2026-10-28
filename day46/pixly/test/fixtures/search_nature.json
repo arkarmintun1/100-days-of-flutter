@@ -1,0 +1,272 @@
+{
+ "total_results": 10000,
+ "page": 1,
+ "per_page": 12,
+ "photos": [
+  {
+   "id": 1012,
+   "width": 4000,
+   "height": 6000,
+   "url": "https://example.com/photo/1012/",
+   "photographer": "Omar Haddad",
+   "photographer_url": "https://example.com/@omar-haddad",
+   "photographer_id": 511,
+   "avg_color": "#2F3E46",
+   "src": {
+    "original": "https://example.com/photos/1012/original.jpg",
+    "large2x": "https://example.com/photos/1012/large2x.jpg",
+    "large": "https://example.com/photos/1012/large.jpg",
+    "medium": "https://example.com/photos/1012/medium.jpg",
+    "small": "https://example.com/photos/1012/small.jpg",
+    "portrait": "https://example.com/photos/1012/portrait.jpg",
+    "landscape": "https://example.com/photos/1012/landscape.jpg",
+    "tiny": "https://example.com/photos/1012/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Desert road at dawn"
+  },
+  {
+   "id": 1011,
+   "width": 5472,
+   "height": 3648,
+   "url": "https://example.com/photo/1011/",
+   "photographer": "Emma Novak",
+   "photographer_url": "https://example.com/@emma-novak",
+   "photographer_id": 510,
+   "avg_color": "#BFA48F",
+   "src": {
+    "original": "https://example.com/photos/1011/original.jpg",
+    "large2x": "https://example.com/photos/1011/large2x.jpg",
+    "large": "https://example.com/photos/1011/large.jpg",
+    "medium": "https://example.com/photos/1011/medium.jpg",
+    "small": "https://example.com/photos/1011/small.jpg",
+    "portrait": "https://example.com/photos/1011/portrait.jpg",
+    "landscape": "https://example.com/photos/1011/landscape.jpg",
+    "tiny": "https://example.com/photos/1011/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Mountain lake reflection"
+  },
+  {
+   "id": 1010,
+   "width": 6000,
+   "height": 4000,
+   "url": "https://example.com/photo/1010/",
+   "photographer": "Kyaw Zin",
+   "photographer_url": "https://example.com/@kyaw-zin",
+   "photographer_id": 509,
+   "avg_color": "#6C7FA1",
+   "src": {
+    "original": "https://example.com/photos/1010/original.jpg",
+    "large2x": "https://example.com/photos/1010/large2x.jpg",
+    "large": "https://example.com/photos/1010/large.jpg",
+    "medium": "https://example.com/photos/1010/medium.jpg",
+    "small": "https://example.com/photos/1010/small.jpg",
+    "portrait": "https://example.com/photos/1010/portrait.jpg",
+    "landscape": "https://example.com/photos/1010/landscape.jpg",
+    "tiny": "https://example.com/photos/1010/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Pagoda at sunset"
+  },
+  {
+   "id": 1009,
+   "width": 4000,
+   "height": 4000,
+   "url": "https://example.com/photo/1009/",
+   "photographer": "Zoe Kim",
+   "photographer_url": "https://example.com/@zoe-kim",
+   "photographer_id": 508,
+   "avg_color": "#A3A3A3",
+   "src": {
+    "original": "https://example.com/photos/1009/original.jpg",
+    "large2x": "https://example.com/photos/1009/large2x.jpg",
+    "large": "https://example.com/photos/1009/large.jpg",
+    "medium": "https://example.com/photos/1009/medium.jpg",
+    "small": "https://example.com/photos/1009/small.jpg",
+    "portrait": "https://example.com/photos/1009/portrait.jpg",
+    "landscape": "https://example.com/photos/1009/landscape.jpg",
+    "tiny": "https://example.com/photos/1009/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Black and white portrait"
+  },
+  {
+   "id": 1008,
+   "width": 4000,
+   "height": 6000,
+   "url": "https://example.com/photo/1008/",
+   "photographer": "Leo Martin",
+   "photographer_url": "https://example.com/@leo-martin",
+   "photographer_id": 507,
+   "avg_color": "#4F6B4A",
+   "src": {
+    "original": "https://example.com/photos/1008/original.jpg",
+    "large2x": "https://example.com/photos/1008/large2x.jpg",
+    "large": "https://example.com/photos/1008/large.jpg",
+    "medium": "https://example.com/photos/1008/medium.jpg",
+    "small": "https://example.com/photos/1008/small.jpg",
+    "portrait": "https://example.com/photos/1008/portrait.jpg",
+    "landscape": "https://example.com/photos/1008/landscape.jpg",
+    "tiny": "https://example.com/photos/1008/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Forest trail in autumn"
+  },
+  {
+   "id": 1007,
+   "width": 3500,
+   "height": 5250,
+   "url": "https://example.com/photo/1007/",
+   "photographer": "Mia Rossi",
+   "photographer_url": "https://example.com/@mia-rossi",
+   "photographer_id": 506,
+   "avg_color": "#C2785A",
+   "src": {
+    "original": "https://example.com/photos/1007/original.jpg",
+    "large2x": "https://example.com/photos/1007/large2x.jpg",
+    "large": "https://example.com/photos/1007/large.jpg",
+    "medium": "https://example.com/photos/1007/medium.jpg",
+    "small": "https://example.com/photos/1007/small.jpg",
+    "portrait": "https://example.com/photos/1007/portrait.jpg",
+    "landscape": "https://example.com/photos/1007/landscape.jpg",
+    "tiny": "https://example.com/photos/1007/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Colorful market stall"
+  },
+  {
+   "id": 1006,
+   "width": 6000,
+   "height": 4000,
+   "url": "https://example.com/photo/1006/",
+   "photographer": "Aye Chan",
+   "photographer_url": "https://example.com/@aye-chan",
+   "photographer_id": 505,
+   "avg_color": "#8FA9BF",
+   "src": {
+    "original": "https://example.com/photos/1006/original.jpg",
+    "large2x": "https://example.com/photos/1006/large2x.jpg",
+    "large": "https://example.com/photos/1006/large.jpg",
+    "medium": "https://example.com/photos/1006/medium.jpg",
+    "small": "https://example.com/photos/1006/small.jpg",
+    "portrait": "https://example.com/photos/1006/portrait.jpg",
+    "landscape": "https://example.com/photos/1006/landscape.jpg",
+    "tiny": "https://example.com/photos/1006/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Ocean waves on a sandy beach"
+  },
+  {
+   "id": 1005,
+   "width": 4000,
+   "height": 5000,
+   "url": "https://example.com/photo/1005/",
+   "photographer": "Noah Becker",
+   "photographer_url": "https://example.com/@noah-becker",
+   "photographer_id": 504,
+   "avg_color": "#5B4A3F",
+   "src": {
+    "original": "https://example.com/photos/1005/original.jpg",
+    "large2x": "https://example.com/photos/1005/large2x.jpg",
+    "large": "https://example.com/photos/1005/large.jpg",
+    "medium": "https://example.com/photos/1005/medium.jpg",
+    "small": "https://example.com/photos/1005/small.jpg",
+    "portrait": "https://example.com/photos/1005/portrait.jpg",
+    "landscape": "https://example.com/photos/1005/landscape.jpg",
+    "tiny": "https://example.com/photos/1005/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Old library shelves"
+  },
+  {
+   "id": 1004,
+   "width": 5000,
+   "height": 3333,
+   "url": "https://example.com/photo/1004/",
+   "photographer": "Hana Sato",
+   "photographer_url": "https://example.com/@hana-sato",
+   "photographer_id": 503,
+   "avg_color": "#D9C7B0",
+   "src": {
+    "original": "https://example.com/photos/1004/original.jpg",
+    "large2x": "https://example.com/photos/1004/large2x.jpg",
+    "large": "https://example.com/photos/1004/large.jpg",
+    "medium": "https://example.com/photos/1004/medium.jpg",
+    "small": "https://example.com/photos/1004/small.jpg",
+    "portrait": "https://example.com/photos/1004/portrait.jpg",
+    "landscape": "https://example.com/photos/1004/landscape.jpg",
+    "tiny": "https://example.com/photos/1004/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Cherry blossoms in spring"
+  },
+  {
+   "id": 1003,
+   "width": 3000,
+   "height": 4500,
+   "url": "https://example.com/photo/1003/",
+   "photographer": "Lucas Silva",
+   "photographer_url": "https://example.com/@lucas-silva",
+   "photographer_id": 502,
+   "avg_color": "#3E5A73",
+   "src": {
+    "original": "https://example.com/photos/1003/original.jpg",
+    "large2x": "https://example.com/photos/1003/large2x.jpg",
+    "large": "https://example.com/photos/1003/large.jpg",
+    "medium": "https://example.com/photos/1003/medium.jpg",
+    "small": "https://example.com/photos/1003/small.jpg",
+    "portrait": "https://example.com/photos/1003/portrait.jpg",
+    "landscape": "https://example.com/photos/1003/landscape.jpg",
+    "tiny": "https://example.com/photos/1003/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "City lights at night"
+  },
+  {
+   "id": 1002,
+   "width": 6000,
+   "height": 4000,
+   "url": "https://example.com/photo/1002/",
+   "photographer": "Min Thu",
+   "photographer_url": "https://example.com/@min-thu",
+   "photographer_id": 501,
+   "avg_color": "#B5A48B",
+   "src": {
+    "original": "https://example.com/photos/1002/original.jpg",
+    "large2x": "https://example.com/photos/1002/large2x.jpg",
+    "large": "https://example.com/photos/1002/large.jpg",
+    "medium": "https://example.com/photos/1002/medium.jpg",
+    "small": "https://example.com/photos/1002/small.jpg",
+    "portrait": "https://example.com/photos/1002/portrait.jpg",
+    "landscape": "https://example.com/photos/1002/landscape.jpg",
+    "tiny": "https://example.com/photos/1002/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Cup of coffee on a wooden table"
+  },
+  {
+   "id": 1001,
+   "width": 4000,
+   "height": 6000,
+   "url": "https://example.com/photo/1001/",
+   "photographer": "Ava Thompson",
+   "photographer_url": "https://example.com/@ava-thompson",
+   "photographer_id": 500,
+   "avg_color": "#7A8C6E",
+   "src": {
+    "original": "https://example.com/photos/1001/original.jpg",
+    "large2x": "https://example.com/photos/1001/large2x.jpg",
+    "large": "https://example.com/photos/1001/large.jpg",
+    "medium": "https://example.com/photos/1001/medium.jpg",
+    "small": "https://example.com/photos/1001/small.jpg",
+    "portrait": "https://example.com/photos/1001/portrait.jpg",
+    "landscape": "https://example.com/photos/1001/landscape.jpg",
+    "tiny": "https://example.com/photos/1001/tiny.jpg"
+   },
+   "liked": false,
+   "alt": "Green hills under a cloudy sky"
+  }
+ ],
+ "next_page": "https://api.pexels.com/v1/search/?page=2&per_page=12&query=nature"
+}
