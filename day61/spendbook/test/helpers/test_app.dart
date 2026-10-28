@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:spendbook/domain/entities/expense.dart';
+import 'package:spendbook/domain/entities/expense_category.dart';
+import 'package:spendbook/main.dart';
+import 'package:spendbook/presentation/providers/dependencies.dart';
+
+import 'fake_expense_repository.dart';
+
+/// "Now" in every widget test.
+final testNow = DateTime(2026, 10, 28, 10);
+
+/// The real app, with a fake repository instead of the database.
+Widget testApp(FakeExpenseRepository repository) => ProviderScope(
+  retry: (_, _) => null,
+  overrides: [
+    expenseRepositoryProvider.overrideWithValue(repository),
+    clockProvider.overrideWithValue(() => testNow),
+  ],
+  child: const SpendbookApp(),
+);
+
+/// A few expenses to show.
+final sampleExpenses = [
+  Expense(
+    id: '1',
+    title: 'Groceries',
+    amountCents: 4520,
+    category: ExpenseCategory.food,
+    date: DateTime(2026, 10, 27),
+  ),
+  Expense(
+    id: '2',
+    title: 'Bus card top-up',
+    amountCents: 2000,
+    category: ExpenseCategory.transport,
+    date: DateTime(2026, 10, 26),
+  ),
+  Expense(
+    id: '3',
+    title: 'Electricity',
+    amountCents: 8735,
+    category: ExpenseCategory.bills,
+    date: DateTime(2026, 10, 20),
+    note: 'October',
+  ),
+  Expense(
+    id: '4',
+    title: 'Cinema',
+    amountCents: 1400,
+    category: ExpenseCategory.entertainment,
+    date: DateTime(2026, 10, 18),
+  ),
+  Expense(
+    id: '5',
+    title: 'Coffee beans',
+    amountCents: 1890,
+    category: ExpenseCategory.shopping,
+    date: DateTime(2026, 10, 28),
+  ),
+  Expense(
+    id: '6',
+    title: 'Rent',
+    amountCents: 120000,
+    category: ExpenseCategory.bills,
+    date: DateTime(2026, 9, 1),
+  ),
+];
