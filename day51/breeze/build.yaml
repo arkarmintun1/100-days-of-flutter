@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          # OpenWeatherMap uses snake_case keys: feelsLike <-> feels_like.
+          field_rename: snake
+          # Call toJson() on nested models too.
+          explicit_to_json: true

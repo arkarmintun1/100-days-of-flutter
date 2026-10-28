@@ -1,0 +1,49 @@
+{
+  "coord": {
+    "lon": 96.1994,
+    "lat": 16.8713
+  },
+  "weather": [
+    {
+      "id": 500,
+      "main": "Rain",
+      "description": "light rain",
+      "icon": "10d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 29.4,
+    "feels_like": 34.1,
+    "temp_min": 29.4,
+    "temp_max": 29.4,
+    "pressure": 1009,
+    "humidity": 79,
+    "sea_level": 1009,
+    "grnd_level": 1008
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 3.6,
+    "deg": 230,
+    "gust": 5.1
+  },
+  "rain": {
+    "1h": 0.42
+  },
+  "clouds": {
+    "all": 75
+  },
+  "dt": 1793161200,
+  "sys": {
+    "type": 1,
+    "id": 9322,
+    "country": "MM",
+    "sunrise": 1793143680,
+    "sunset": 1793185920
+  },
+  "timezone": 23400,
+  "id": 1298824,
+  "name": "Yangon",
+  "cod": 200
+}

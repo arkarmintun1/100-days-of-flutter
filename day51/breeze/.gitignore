@@ -1,0 +1,4 @@
+.dart_tool/
+build/
+# The real key never goes to git.
+.env
