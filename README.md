@@ -8,7 +8,8 @@ Every day that has code has its own folder, with the app **as it is at the end o
 |---|---|---|
 | 24–48 | **Pixly** | A photo gallery on the Pexels API: layouts, navigation, Provider → Riverpod 3, Dio, Freezed, caching, retries, offline |
 | 49–54 | **Breeze** | A live weather app on OpenWeatherMap: location, AsyncNotifier, glassmorphism UI, offline persistence |
-| 55–65 | **Spendbook** | A Clean Architecture expense tracker: fpdart, Drift, Riverpod DI, charts |
+| 55–66 | **Spendbook** | A Clean Architecture expense tracker: fpdart, Drift, Riverpod DI, charts, a currency API, ML Kit receipt scanning, performance |
+| 67–69 | **Motion Lab** | Animations: implicit animations, Hero and page transitions, Rive |
 
 ## Run a day
 
