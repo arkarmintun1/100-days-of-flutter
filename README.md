@@ -8,8 +8,9 @@ Every day that has code has its own folder, with the app **as it is at the end o
 |---|---|---|
 | 24–48 | **Pixly** | A photo gallery on the Pexels API: layouts, navigation, Provider → Riverpod 3, Dio, Freezed, caching, retries, offline |
 | 49–54 | **Breeze** | A live weather app on OpenWeatherMap: location, AsyncNotifier, glassmorphism UI, offline persistence |
-| 55–66 | **Spendbook** | A Clean Architecture expense tracker: fpdart, Drift, Riverpod DI, charts, a currency API, ML Kit receipt scanning, performance |
+| 55–66, 70–74 | **Spendbook** | A Clean Architecture expense tracker: fpdart, Drift, Riverpod DI, charts, a currency API, ML Kit receipt scanning, performance; then Gemini with Firebase AI Logic: prompting, receipt vision, GenUI, function calling |
 | 67–69 | **Motion Lab** | Animations: implicit animations, Hero and page transitions, Rive |
+| 75–85 | **Trip Buddy** | An AI travel companion: RAG with embeddings from a Genkit Cloud Function, a vector store in Drift with hybrid search, a document vault, chat with function calling, Google Maps and location, GenUI cards, Rive |
 
 ## Run a day
 
@@ -34,6 +35,8 @@ cp .env.example .env
 
 - Pixly: `PEXELS_API_KEY` from [pexels.com/api](https://www.pexels.com/api/)
 - Breeze: `OPENWEATHER_API_KEY` from [openweathermap.org](https://openweathermap.org/api) (a new key can take up to 2 hours to start working)
+
+Spendbook's AI days (70–74) and Trip Buddy (75–85) use your own **Firebase** project instead: run `flutterfire configure` in the day's folder (see Day 70 and Day 75, and the day's README).
 
 ### Tests
 

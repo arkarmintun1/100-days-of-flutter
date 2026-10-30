@@ -1,0 +1,441 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'dependencies.dart';
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+/// Whether Firebase started (main.dart overrides it).
+
+@ProviderFor(firebaseReady)
+final firebaseReadyProvider = FirebaseReadyProvider._();
+
+/// Whether Firebase started (main.dart overrides it).
+
+final class FirebaseReadyProvider extends $FunctionalProvider<bool, bool, bool>
+    with $Provider<bool> {
+  /// Whether Firebase started (main.dart overrides it).
+  FirebaseReadyProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'firebaseReadyProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$firebaseReadyHash();
+
+  @$internal
+  @override
+  $ProviderElement<bool> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  bool create(Ref ref) {
+    return firebaseReady(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(bool value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<bool>(value),
+    );
+  }
+}
+
+String _$firebaseReadyHash() => r'38c7dec60f80896bce1c13d65a141173c0ba440b';
+
+/// The current time. Tests override it to get a fixed "now".
+
+@ProviderFor(clock)
+final clockProvider = ClockProvider._();
+
+/// The current time. Tests override it to get a fixed "now".
+
+final class ClockProvider
+    extends
+        $FunctionalProvider<
+          DateTime Function(),
+          DateTime Function(),
+          DateTime Function()
+        >
+    with $Provider<DateTime Function()> {
+  /// The current time. Tests override it to get a fixed "now".
+  ClockProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'clockProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$clockHash();
+
+  @$internal
+  @override
+  $ProviderElement<DateTime Function()> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  DateTime Function() create(Ref ref) {
+    return clock(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(DateTime Function() value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<DateTime Function()>(value),
+    );
+  }
+}
+
+String _$clockHash() => r'3f65ad34ac6fcd532de9004042bdf2ed2bd85b13';
+
+@ProviderFor(embedder)
+final embedderProvider = EmbedderProvider._();
+
+final class EmbedderProvider
+    extends $FunctionalProvider<Embedder, Embedder, Embedder>
+    with $Provider<Embedder> {
+  EmbedderProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'embedderProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$embedderHash();
+
+  @$internal
+  @override
+  $ProviderElement<Embedder> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  Embedder create(Ref ref) {
+    return embedder(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(Embedder value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<Embedder>(value),
+    );
+  }
+}
+
+String _$embedderHash() => r'beac7758e56b5373a9f15bc43747a6b5c97accab';
+
+@ProviderFor(tripDatabase)
+final tripDatabaseProvider = TripDatabaseProvider._();
+
+final class TripDatabaseProvider
+    extends $FunctionalProvider<TripDatabase, TripDatabase, TripDatabase>
+    with $Provider<TripDatabase> {
+  TripDatabaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'tripDatabaseProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$tripDatabaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<TripDatabase> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  TripDatabase create(Ref ref) {
+    return tripDatabase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(TripDatabase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<TripDatabase>(value),
+    );
+  }
+}
+
+String _$tripDatabaseHash() => r'3513eeff0d0ded8bb6b9046a947205648b757b37';
+
+@ProviderFor(tripMemory)
+final tripMemoryProvider = TripMemoryProvider._();
+
+final class TripMemoryProvider
+    extends $FunctionalProvider<TripMemory, TripMemory, TripMemory>
+    with $Provider<TripMemory> {
+  TripMemoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'tripMemoryProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$tripMemoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<TripMemory> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  TripMemory create(Ref ref) {
+    return tripMemory(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(TripMemory value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<TripMemory>(value),
+    );
+  }
+}
+
+String _$tripMemoryHash() => r'72781d9a2354c99cf27bb562dc7558571875aece';
+
+@ProviderFor(memorizeDocument)
+final memorizeDocumentProvider = MemorizeDocumentProvider._();
+
+final class MemorizeDocumentProvider
+    extends
+        $FunctionalProvider<
+          MemorizeDocument,
+          MemorizeDocument,
+          MemorizeDocument
+        >
+    with $Provider<MemorizeDocument> {
+  MemorizeDocumentProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'memorizeDocumentProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$memorizeDocumentHash();
+
+  @$internal
+  @override
+  $ProviderElement<MemorizeDocument> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  MemorizeDocument create(Ref ref) {
+    return memorizeDocument(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(MemorizeDocument value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<MemorizeDocument>(value),
+    );
+  }
+}
+
+String _$memorizeDocumentHash() => r'96e4827d0f9df7139e4f86b5cfbe61f8ba940833';
+
+@ProviderFor(searchMemory)
+final searchMemoryProvider = SearchMemoryProvider._();
+
+final class SearchMemoryProvider
+    extends $FunctionalProvider<SearchMemory, SearchMemory, SearchMemory>
+    with $Provider<SearchMemory> {
+  SearchMemoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'searchMemoryProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$searchMemoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<SearchMemory> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  SearchMemory create(Ref ref) {
+    return searchMemory(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(SearchMemory value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<SearchMemory>(value),
+    );
+  }
+}
+
+String _$searchMemoryHash() => r'0dff1a1793ad0747f9cbde4a2e438d606a8001eb';
+
+@ProviderFor(documents)
+final documentsProvider = DocumentsProvider._();
+
+final class DocumentsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<TripDocument>>,
+          List<TripDocument>,
+          Stream<List<TripDocument>>
+        >
+    with
+        $FutureModifier<List<TripDocument>>,
+        $StreamProvider<List<TripDocument>> {
+  DocumentsProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'documentsProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$documentsHash();
+
+  @$internal
+  @override
+  $StreamProviderElement<List<TripDocument>> $createElement(
+    $ProviderPointer pointer,
+  ) => $StreamProviderElement(pointer);
+
+  @override
+  Stream<List<TripDocument>> create(Ref ref) {
+    return documents(ref);
+  }
+}
+
+String _$documentsHash() => r'a28bc50c5c8972b0631e07256be8138ea45a819d';
+
+/// The chunks that best answer [question], best first.
+
+@ProviderFor(memorySearch)
+final memorySearchProvider = MemorySearchFamily._();
+
+/// The chunks that best answer [question], best first.
+
+final class MemorySearchProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<SearchHit>>,
+          List<SearchHit>,
+          FutureOr<List<SearchHit>>
+        >
+    with $FutureModifier<List<SearchHit>>, $FutureProvider<List<SearchHit>> {
+  /// The chunks that best answer [question], best first.
+  MemorySearchProvider._({
+    required MemorySearchFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'memorySearchProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$memorySearchHash();
+
+  @override
+  String toString() {
+    return r'memorySearchProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<List<SearchHit>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<SearchHit>> create(Ref ref) {
+    final argument = this.argument as String;
+    return memorySearch(ref, argument);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is MemorySearchProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$memorySearchHash() => r'6deaab58a0a2bfc33f0b2004912ebae4c360f2ef';
+
+/// The chunks that best answer [question], best first.
+
+final class MemorySearchFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<List<SearchHit>>, String> {
+  MemorySearchFamily._()
+    : super(
+        retry: null,
+        name: r'memorySearchProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  /// The chunks that best answer [question], best first.
+
+  MemorySearchProvider call(String question) =>
+      MemorySearchProvider._(argument: question, from: this);
+
+  @override
+  String toString() => r'memorySearchProvider';
+}
