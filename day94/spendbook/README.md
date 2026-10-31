@@ -64,7 +64,7 @@ firebase emulators:exec --only auth,firestore --project demo-spendbook \
 The rules tests (Node.js 24.12 or newer, the Firestore emulator):
 
 ```bash
-cd firestore-tests && npm install && cd ..
+npm ci --prefix firestore-tests
 firebase emulators:exec --only firestore --project demo-spendbook \
   "npm --prefix firestore-tests test"
 ```

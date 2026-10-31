@@ -14,10 +14,15 @@ on:
       - .github/workflows/day94_spendbook.yml
   workflow_dispatch:
 
-# A newer push to the same branch cancels the run that is still going.
+# Read-only access to the repo is all these jobs need.
+permissions:
+  contents: read
+
+# A newer push to the same pull request cancels the run that is still
+# going. Runs on main all finish.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 defaults:
   run:
@@ -37,7 +42,8 @@ jobs:
           channel: stable
           cache: true # the Flutter SDK and the pub cache
 
-      - run: flutter pub get
+      # Fails if pubspec.lock is out of date, instead of changing it.
+      - run: flutter pub get --enforce-lockfile
 
       - name: Generated code is up to date
         run: |
@@ -103,7 +109,7 @@ jobs:
           channel: stable
           cache: true
 
-      - run: flutter pub get
+      - run: flutter pub get --enforce-lockfile
 
       - run: >-
           flutter build apk --release --flavor prod
