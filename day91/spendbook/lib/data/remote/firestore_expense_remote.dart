@@ -39,11 +39,13 @@ class FirestoreExpenseRemote {
       // Getting one twice is harmless.
       query = query.where('syncedAt', isGreaterThanOrEqualTo: since);
     }
-    // From the server only: offline, this fails instead of quietly
-    // answering from a cache.
-    final snapshot = await query
-        .orderBy('syncedAt')
-        .get(const GetOptions(source: Source.server));
+    // From the server when it can be reached. Not Source.server: right
+    // after the app starts, before Firestore has connected, that fails
+    // with "unavailable". Without the server, the answer comes from the
+    // memory cache (persistence is off), often empty: anything in it was
+    // read before, so applying it again changes nothing, and pulledUpTo
+    // can't move past a change we haven't seen.
+    final snapshot = await query.orderBy('syncedAt').get();
 
     final rows = <ExpenseRow>[];
     Timestamp? upTo = since;

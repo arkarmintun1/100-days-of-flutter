@@ -1,0 +1,60 @@
+rules_version = '2';
+
+// Day 92: Spendbook's Firestore rules. Everything not allowed here is
+// denied.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Each user reads and writes only their own expenses (Day 91).
+    match /users/{userId}/expenses/{expenseId} {
+      allow read: if isOwner(userId);
+
+      allow create: if isOwner(userId) && isExpense(request.resource.data);
+
+      allow update: if isOwner(userId)
+        && isExpense(request.resource.data)
+        // A deletion is final (Day 91): a tombstone can't come back.
+        && !(resource.data.deleted == true
+          && request.resource.data.deleted == false);
+
+      // Deleting is done with tombstones, so other phones see it.
+      allow delete: if false;
+    }
+
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    // What FirestoreExpenseRemote writes (expense_firestore.dart).
+    function isExpense(data) {
+      return data.keys().hasOnly([
+          'title', 'amountCents', 'category', 'date', 'note', 'original',
+          'updatedAt', 'deleted', 'syncedAt'])
+        && data.keys().hasAll([
+          'title', 'amountCents', 'category', 'date', 'updatedAt',
+          'deleted', 'syncedAt'])
+        // A loose limit: the app's own rule (60 characters as people
+        // see them, which can take several code points each, e.g. in
+        // Myanmar) is checked in the domain (AddExpense).
+        && data.title is string && data.title.size() > 0
+        && data.title.size() <= 1000
+        && data.amountCents is int && data.amountCents > 0
+        && data.category in ['food', 'transport', 'shopping', 'bills',
+          'entertainment', 'health', 'other']
+        && data.date is timestamp
+        && (data.get('note', null) == null || data.note is string)
+        && (data.get('original', null) == null || isForeignAmount(data.original))
+        && data.updatedAt is int
+        && data.deleted is bool
+        // FieldValue.serverTimestamp(): the server's time of this write.
+        && data.syncedAt == request.time;
+    }
+
+    function isForeignAmount(original) {
+      return original.keys().hasOnly(['currency', 'minorUnits', 'decimalDigits'])
+        && original.currency is string && original.currency.size() == 3
+        && original.minorUnits is int && original.minorUnits > 0
+        && original.decimalDigits is int;
+    }
+  }
+}
