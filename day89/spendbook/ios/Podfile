@@ -27,14 +27,6 @@ require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelpe
 
 flutter_ios_podfile_setup
 
-# Day 89: Google's ML Kit pods have no arm64 iOS Simulator slice. This opt-in
-# helper from google_mlkit_commons relabels it, so Spendbook also runs on an
-# Apple Silicon simulator (see the plugin's README).
-require File.expand_path(
-  '.symlinks/plugins/google_mlkit_commons/ios/scripts/apple_silicon_simulator',
-  __dir__,
-)
-
 target 'Runner' do
   use_frameworks!
 
@@ -48,5 +40,14 @@ post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
   end
+  # Day 89: Google's ML Kit pods have no arm64 iOS Simulator slice. This
+  # opt-in helper from google_mlkit_commons relabels it, so Spendbook also
+  # runs on an Apple Silicon simulator (see the plugin's README). Loaded
+  # here, not at the top: .symlinks/ only exists once Flutter's plugin pods
+  # are set up, and not yet on a fresh checkout.
+  require File.expand_path(
+    '.symlinks/plugins/google_mlkit_commons/ios/scripts/apple_silicon_simulator',
+    __dir__,
+  )
   mlkit_apple_silicon_simulator_patch(installer)
 end
