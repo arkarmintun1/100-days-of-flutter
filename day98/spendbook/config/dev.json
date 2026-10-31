@@ -1,0 +1,4 @@
+{
+  "AUTH_EMULATOR": "localhost:9099",
+  "FIRESTORE_EMULATOR": "localhost:8080"
+}

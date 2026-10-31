@@ -21,16 +21,27 @@ fvm flutter run --flavor dev --dart-define-from-file=config/dev.json
 fvm flutter run --flavor prod --dart-define-from-file=config/prod.json
 ```
 
-`config/dev.json` points the app at the Auth and Firestore emulators. Each flavor needs its own Firebase project (Day 70, 90-92):
+`config/dev.json` points the app at the Auth and Firestore emulators. Each flavor needs its own Firebase apps: in two Firebase projects, or all four apps in one project (Day 93). With the FlutterFire CLI, one run per iOS build configuration:
 
 ```bash
-flutterfire configure --project=<dev project id> --out=lib/firebase_options_dev.dart \
-  --android-package-name=dev.arkar.flutter100.spendbook.dev --android-out=android/app/src/dev/google-services.json \
-  --ios-bundle-id=dev.arkar.flutter100.spendbook.dev --ios-out=ios/flavors/dev/GoogleService-Info.plist
-flutterfire configure --project=<prod project id> --out=lib/firebase_options_prod.dart \
-  --android-package-name=dev.arkar.flutter100.spendbook --android-out=android/app/src/prod/google-services.json \
-  --ios-bundle-id=dev.arkar.flutter100.spendbook --ios-out=ios/flavors/prod/GoogleService-Info.plist
+DEV_PROJECT=your-dev-project-id
+PROD_PROJECT=your-prod-project-id   # or the same id as DEV_PROJECT
+
+for config in Debug Profile Release; do
+  flutterfire configure --yes --project="$DEV_PROJECT" --platforms=android,ios \
+    --out=lib/firebase_options_dev.dart --overwrite-firebase-options \
+    --android-package-name=dev.arkar.flutter100.spendbook.dev --android-out=android/app/src/dev/google-services.json \
+    --ios-bundle-id=dev.arkar.flutter100.spendbook.dev --ios-build-config="$config-dev" \
+    --ios-out=ios/flavors/dev/GoogleService-Info.plist
+  flutterfire configure --yes --project="$PROD_PROJECT" --platforms=android,ios \
+    --out=lib/firebase_options_prod.dart --overwrite-firebase-options \
+    --android-package-name=dev.arkar.flutter100.spendbook --android-out=android/app/src/prod/google-services.json \
+    --ios-bundle-id=dev.arkar.flutter100.spendbook --ios-build-config="$config-prod" \
+    --ios-out=ios/flavors/prod/GoogleService-Info.plist
+done
 ```
+
+In the Firebase console, turn on Authentication, App Check and Firebase AI Logic, create the Firestore database, and register each app's App Check debug token (Day 99 has a checklist). Don't commit the generated files to a public repo.
 
 Without them, `lib/firebase_options_*.dart` are placeholders and Spendbook runs without the Firebase features.
 

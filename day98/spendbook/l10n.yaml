@@ -1,0 +1,7 @@
+# Day 96: flutter gen-l10n (also runs on `flutter run` / `flutter test`
+# because of `generate: true` in pubspec.yaml).
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+# AppLocalizations.of(context) is never null: no `!` everywhere.
+nullable-getter: false
