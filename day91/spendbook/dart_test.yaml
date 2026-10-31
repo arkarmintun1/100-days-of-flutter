@@ -1,0 +1,6 @@
+tags:
+  # Day 88: golden tests (test/golden_test.dart). Run them on one OS;
+  # elsewhere: fvm flutter test -x golden
+  golden:
+  screenshots:
+    skip: "Renders the blog's screenshots; run with --run-skipped -t screenshots --update-goldens"
