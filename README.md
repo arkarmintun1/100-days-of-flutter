@@ -15,11 +15,11 @@ Every day that has code has its own folder, with the app **as it is at the end o
 
 ## Run a day
 
-The series uses Flutter **3.47.5** (Dart 3.13), managed with [FVM](https://fvm.app/).
+The series uses Flutter **3.47.9** (Dart 3.13), managed with [FVM](https://fvm.app/).
 
 ```bash
 cd day54/breeze
-fvm use 3.47.5          # or use your own Flutter 3.47.x
+fvm use 3.47.9          # or use your own Flutter 3.47.x
 fvm flutter pub get
 fvm dart run build_runner build   # only if pubspec.yaml has build_runner
 fvm flutter run

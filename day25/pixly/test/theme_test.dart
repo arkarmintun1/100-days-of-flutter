@@ -61,6 +61,7 @@ void main() {
     expect(style.fontFamily, expected.fontFamily);
   });
 
+  // Renders the blog's screenshots: skipped by default (dart_test.yaml).
   group('screenshots', () {
     setUpAll(loadRealFonts);
     for (final (name, theme) in [
@@ -69,6 +70,7 @@ void main() {
     ]) {
       testWidgets(
         name,
+        tags: 'screenshots',
         (t) => screenshot(
           t,
           name,
